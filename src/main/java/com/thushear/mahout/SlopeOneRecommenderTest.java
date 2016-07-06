@@ -63,16 +63,16 @@ public class SlopeOneRecommenderTest {
             List<RecommendedItem> recommenations = cachingRecommender.recommend(userId,10);
             // if empty write something
             if (recommenations.size() == 0){
-                System.out.println("user ");
-                System.out.println(userId);
+                System.out.print("user ");
+                System.out.print(userId);
                 System.out.println(": no recommendations");
             }
             // print the list of recommendations for each
             for (RecommendedItem recommenation : recommenations) {
-                System.out.println("user ");
-                System.out.println(userId);
+                System.out.print("user ");
+                System.out.print(userId);
 
-                System.out.println(":");
+                System.out.print(":");
                 System.out.println(recommenation);
             }
 
