@@ -8,7 +8,6 @@ import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -20,7 +19,7 @@ public class CreateSequenceFileFromArtists {
 
     public static void main(String[] args) throws IOException {
         String inputPath = "data/lastfm/original/Lastfm-ArtistTags2007/artists.txt";
-        String outputPath =  "data/lastfm/sequencesfiles";
+        String outputPath =  "data/lastfm/sequencesfiles/part-0000";
         Path path = new Path(outputPath);
 
         BufferedReader br = new BufferedReader(new FileReader(inputPath));
@@ -30,7 +29,7 @@ public class CreateSequenceFileFromArtists {
         FileSystem fs = FileSystem.get(conf);
         SequenceFile.Writer writer = new SequenceFile.Writer(fs,conf,path, LongWritable.class, Text.class);
 
-        String line = br.readLine();
+        String line  = null;
         String[] temp;
         String tempValue = new String();
         String delimiter = " ";
